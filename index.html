@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХАРАНДАА - Энгийн зүйлээс бүтээлч санаа хүртэл</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .presentation-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            font-size: 18px;
+            line-height: 1.8;
+            animation: slideIn 0.5s ease-in-out;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Слайдын өөр өөр style */
+        .slide-title {
+            background: linear-gradient(135deg, #8B4513 0%, #D2B48C 100%);
+            color: #fff;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        .slide-content {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            color: #333;
+        }
+        
+        .slide-content h2 {
+            color: #8B4513;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide-content ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .slide-content li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .slide-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #2c3e50;
+            gap: 20px;
+        }
+        
+        button {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #A0522D;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            color: white;
+            font-size: 16px;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .slide-info {
+            color: #bdc3c7;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- СЛАЙД 1: НҮҮР -->
+        <div class="slide slide-title active">
+            <div>
+                <h1 style="font-size: 80px; margin-bottom: 40px;">ХАРАНДАА</h1>
+                <p class="subtitle">Энгийн зүйлээс бүтээлч санаа хүртэл</p>
+            </div>
+        </div>
+        
+        <!-- СЛАЙД 2: ХАРАНДАА ГЭЖ ЮУ ВЭ? -->
+        <div class="slide slide-content">
+            <h2>Харандаа гэж юу вэ?</h2>
+            <ul>
+                <li>Цаасан дээр тэмдэг, үсэг, зураг үлдээх хэрэгсэл</li>
+                <li>Графит, шавар, мод, будалт, баллуур, металл холбоосоор бүтээгддэг</li>
+                <li>Бичих, зурах, техникийн зураг, загвар гаргахад ашигладаг</li>
+                <li>Өнөөдөр сургалт, дизайн, архитектур, инженерчлэлд чухал үүрэгтэй</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 3: ХАРАНДААНЫ ТҮҮХ -->
+        <div class="slide slide-content">
+            <h2>Харандааны түүх</h2>
+            <ul>
+                <li>Эртний хүмүүс нүүрс, шавар, чулуу, модын жижиг шугам ашигладаг байв</li>
+                <li>16–17-р зуунд графитийг цаас руу ашиглах боломжтой болсон</li>
+                <li>1795 онд Францын Николас-Жак Контэ орчин үеийн харандааг зохион бүтээсэн</li>
+                <li>Контэ графит, шавар, шатаах аргыг ашиглан хатуулагтай харандаа бий болгосон</li>
+                <li>Орчин үеийн харандаа нь хатуулаг, өнгө, төрлөөр олон янз болж хөгжсөн</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 4: ХАРАНДАА ЯАГААД БИЧДЭГ ВЭ? -->
+        <div class="slide slide-content">
+            <h2>Харандаа яагаад бичдэг вэ?</h2>
+            <ul>
+                <li>Графит нь нүүрстөрөгчийн нэг төрөл юм</li>
+                <li>Графит нь жижиг, нимгэн хэсгүүдээр цаас руу наалдаж болно</li>
+                <li>Үрэлт, даралт, хөдөлгөөн нь зураас үүсгэдэг</li>
+                <li>Шавар нь графитыг илүү хатуу, цайвар болгодог</li>
+                <li>Харандааны гол нь цаасан дээр бараан мөр үлдээдэг</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 5: ХАРАНДААНЫ ДОТОР ЯГ ЮУ БАЙДАГ ВЭ? -->
+        <div class="slide slide-content">
+            <h2>Харандааны дотор юу байдаг вэ?</h2>
+            <ul>
+                <li><strong>Графит</strong> - цаасан дээр мөр үлдээдэг үндсэн материал</li>
+                <li><strong>Шавар</strong> - графитыг илүү хатуу, цайвар болгодог</li>
+                <li><strong>Модон бүрхүүл</strong> - гадна ялаасны хэсэг</li>
+                <li><strong>Будаг/лак</strong> - модны гадна талыг сүрэглэдэг</li>
+                <li><strong>Баллуур</strong> - мөрийг арилгахад ашигладаг резин</li>
+                <li><strong>Металл холбоос</strong> - баллуурыг модонд бэхлэдэг</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 6: HB, H, B ГЭЖ ЮУ ВЭ? -->
+        <div class="slide slide-content">
+            <h2>HB, H, B гэж юу вэ?</h2>
+            <ul>
+                <li><strong>H = Hard (хатуу)</strong> - илүү хатуу, цайвар</li>
+                <li><strong>B = Black (хар)</strong> - илүү зөөлөн, бараан</li>
+                <li><strong>HB = Hard + Black (дунд)</strong> - ерөнхий бичихэд хамгийн түгээмэл</li>
+                <li><strong>2H, 4H</strong> = илүү хатуу, цайвар (техникийн зураг)</li>
+                <li><strong>2B, 4B, 6B</strong> = илүү зөөлөн, бараан (урлаг, сүүдэрлэх)</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 7: ЯАГААД ҮЗҮҮР МУХАРДАГ ВЭ? -->
+        <div class="slide slide-content">
+            <h2>Яагаад харандааны үзүүр мухардаг вэ?</h2>
+            <ul>
+                <li>Цаас, графит хоёрын үрэлт элэгдэл үүсгэдэг</li>
+                <li>Даралт ихсэх тусам графит хэсгүүд дагалдан сална</li>
+                <li>Үзүүрийн элэгдэл нь шугамны чанарт нөлөөлдөг</li>
+                <li>Шавар, графит, модны нийлэмж үр дүнд нөлөөлдөг</li>
+                <li>Үзүүрийг барзгар болгох нь шинэ мөрийг бий болгодог</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 8: ХАРАНДАА БА БАЛЛУУР -->
+        <div class="slide slide-content">
+            <h2>Харандаа ба баллуур</h2>
+            <ul>
+                <li>Баллуур нь графитийг цааснаас салгахад үйлчилдэг</li>
+                <li>Баллуур нь уусгах биш, механик байдлаар арилгадаг</li>
+                <li>Зарим мөр хавтгай, амархан алга болдог</li>
+                <li>Зарим мөр удаан хугацаа, их даралттай байдаг</li>
+                <li>Графит, цаас, баллуурын чанар бүгд нөлөөлдөг</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 9: ЗҮГЭЭР НЭГ БИЧГИЙН ХЭРЭГСЭЛ БИШ -->
+        <div class="slide slide-content">
+            <h2>Харандаа бол зүгээр нэг бичгийн хэрэгсэл биш</h2>
+            <ul>
+                <li>💼 <strong>Бичих</strong> - ерөнхий үгүүлэлт</li>
+                <li>🎨 <strong>Зурах</strong> - урлаг, сүүдэрлэх</li>
+                <li>📐 <strong>Техникийн зураг</strong> - нарийн шугам, диаграм</li>
+                <li>🏗️ <strong>Архитектур</strong> - анхны төсөл, хэмжээ</li>
+                <li>🖌️ <strong>Дизайн</strong> - санааны эхлэл, скиз</li>
+                <li>⚙️ <strong>Инженерчлэл</strong> - схем, асуудал шийдэл</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 10: СОНИРХОЛТОЙ ЖИШЭЭ -->
+        <div class="slide slide-content">
+            <h2>Сонирхолтой жишээ</h2>
+            <ul>
+                <li>"<strong>Хэрэв бидэнд үзэг байхгүй бол яах вэ?</strong>" → Харандаа руу буцах</li>
+                <li>Харандаа нь яагаад үргэлж шаардлагатай вэ? → Туршилт хийх</li>
+                <li>Нэг харандаагаар алдаа засаж болно</li>
+                <li>Харин бэхтэй үзгээр бичсэн бол? → Ихэнх алга болохгүй</li>
+                <li>Тиймээс харандаа нь бүтээлч ажилд илүү нийцдэг</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 11: ХАРАНДАА БА БҮТЭЭЛЧ СЭТГЭЛГЭЭ -->
+        <div class="slide slide-content">
+            <h2>Харандаа ба бүтээлч сэтгэлгээ</h2>
+            <ul>
+                <li>Санаагаа эхлээд цаасан дээр буулгах боломжийг олгодог</li>
+                <li>Алдахаас айхгүй туршиж үзэх боломжийг өгдөг</li>
+                <li>Засах, хурдан шинэчлэх боломжтой</li>
+                <li>Дахин зурах, хөгжүүлэх, шинэ санаа гаргахад тохиромжтой</li>
+                <li><strong>Том бүтээл эхлээд жижигхэн шугамаас эхэлдэг</strong></li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 12: ХАРАНДААГҮЙ БОЛ ЯАХ ВЭ? -->
+        <div class="slide slide-content">
+            <h2>Харандаагүй бол яах вэ?</h2>
+            <ul>
+                <li>📚 <strong>Сургууль</strong> - тэмдэглэл, дасгал, зураг алга</li>
+                <li>🏢 <strong>Архитектор</strong> - анхны зураас, хэмжээ, төсөл утаа</li>
+                <li>⚙️ <strong>Инженер</strong> - диаграм, схем, асуудал шийдэл хэцүү</li>
+                <li>🎨 <strong>Зураач</strong> - сүүдэр, контур, бүтээлч эхлэл боломжгүй</li>
+                <li>🖌️ <strong>Дизайнер</strong> - санааны скиз, загварын эхлэл хоосон</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 13: СОНИРХОЛТОЙ ТУРШИЛТ -->
+        <div class="slide slide-content">
+            <h2>Сонирхолтой туршилт</h2>
+            <ul>
+                <li>H, HB, 2B харандаагаар нэг цаасан дээр зур</li>
+                <li>Баллуур ашиглаад графит хэрхэн арилж байгааг үз</li>
+                <li>Өөр өөр даралтаар мөрний ялгааг харуул</li>
+                <li>Сүүдэрлэхдээ зөөлөн ба хатуу харандааны ялгааг харуул</li>
+                <li><strong>Дүгнэлт:</strong> хатуу харандаа цайвар, зөөлөн харандаа бараан</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 14: СОНИРХОЛТОЙ БАРИМТУУД -->
+        <div class="slide slide-content">
+            <h2>Сонирхолтой баримтууд</h2>
+            <ul>
+                <li>"<strong>Lead</strong>" гэдэг нэртэй ч үнэндээ графит юм (хар тугалга биш)</li>
+                <li>1795 онд Контэ шинэ технологийг боловсруулсан</li>
+                <li>H/B систем нь графит, шаварын харьцаатай холбоотой</li>
+                <li>Баллуур нь графитийг уусгаж биш, механик аргаар салгадаг</li>
+                <li>Харандаа нь урлаг, инженерчлэл, сургалт, дизайнтэй салшгүй</li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 15: ДҮГНЭЛТ -->
+        <div class="slide slide-content">
+            <h2>Дүгнэлт</h2>
+            <ul>
+                <li>Харандаа бол энгийн мэт боловч маш чухал хэрэгсэл</li>
+                <li>Графит, шавар, мод, металлын зохицлолоор ажилладаг</li>
+                <li>Бичих, зураг, загвар, санаа, туршилтын эхлэл болдог</li>
+                <li>Харандаа нь "жижиг зүйл" мэт боловч том бүтээлийн эхлэл</li>
+                <li><strong>Хүний бүтээлч сэтгэлгээ, ин��енерчлэл, урлагийн хөгжилд чухал үүрэгтэй</strong></li>
+            </ul>
+        </div>
+        
+        <!-- СЛАЙД 16: ТӨГСГӨЛ -->
+        <div class="slide slide-title">
+            <div>
+                <h1 style="font-size: 48px; line-height: 1.8;">Бүх том бүтээл эхлээд<br/>жижигхэн санаанаас эхэлдэг</h1>
+                <p class="subtitle" style="margin-top: 40px; font-size: 28px;">Харин тэр санааг цаасан дээр буулгах<br/>хамгийн энгийн хэрэгсэл нь<br/>харандаа байж болно.</p>
+            </div>
+        </div>
+        
+        <!-- КОНТРОЛЬ -->
+        <div class="controls">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Өмнөх</button>
+            <div style="flex: 1; text-align: center;">
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">16</span>
+                </div>
+                <div class="slide-info" id="slideTitle">ХАРАНДАА</div>
+            </div>
+            <button id="nextBtn" onclick="changeSlide(1)">Дараах →</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        const slideTitles = [
+            'ХАРАНДАА',
+            'Харандаа гэж юу вэ?',
+            'Харандааны түүх',
+            'Харандаа яагаад бичдэг вэ?',
+            'Харандааны дотор юу байдаг вэ?',
+            'HB, H, B гэж юу вэ?',
+            'Яагаад харандааны үзүүр мухардаг вэ?',
+            'Харандаа ба баллуур',
+            'Харандаа бол зүгээр нэг бичгийн хэрэгсэл биш',
+            'Сонирхолтой жишээ',
+            'Харандаа ба бүтээлч сэтгэлгээ',
+            'Харандаагүй бол яах вэ?',
+            'Сонирхолтой туршилт',
+            'Сонирхолтой баримтууд',
+            'Дүгнэлт',
+            'Төгсгөл'
+        ];
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('slideTitle').textContent = slideTitles[currentSlide - 1];
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
